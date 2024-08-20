@@ -1,0 +1,578 @@
+{%extends 'base.html'%}
+{%block title%}Home{%endblock title%}
+{%block body%}
+
+<!-- Show logo when page reload -->
+<div id="elementToHide" class="d-flex align-items-center justify-content-center" style="height: 660px;">
+  <img src="{{ url_for('static', filename='logo.png') }}" height="80px" width="95px">
+</div>
+
+<!-- Starting template -->
+<div id="elementToDisplay">
+  <!-- Navbar -->
+    <div class="fixed-top bg-white  ">
+      <div class="container">
+        <header class="navbar navbar-expand-lg bg-white d-flex flex-wrap justify-content-center py-1 mb-4">
+          <a href="/"
+            class="d-flex logo-with-name align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img class="mx-2 pt-1 shake" src="{{ url_for('static', filename='logo.png') }}" alt=""
+               height="45" width="50px">
+            <span class="fs-4 ">OceanMonks</span>
+          </a>
+          <button class="navbar-toggler hamberg" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse left navbarCollapse" id="navbarSupportedContent">
+            <ul class="nav nav-pills pb-1">
+              <li class="nav-item"><a href="#services" class="nav-link text-dark fs-5">Services</a></li>
+              <li class="nav-item"><a href="#faq" class="nav-link text-dark fs-5">FAQs</a></li>
+              <li class="nav-item"><a href="#about" class="nav-link text-dark fs-5">About</a></li>
+              <li class="nav-item"><a href="" class="rounded-pill nav-link contact text-center active fs-5 "
+                  data-bs-toggle="modal" data-bs-target="#contactModaL" aria-current="page">Contact</a></li>
+            </ul>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <!-- Message flash -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{message}} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {%endif %}
+    {%endwith%}
+
+    
+    <!-- Hero -->
+    <div class="px-4 py-5 my-5 text-center">
+      <img class="d-block mx-auto mb-4 shake" src="{{ url_for('static', filename='logo.png') }}"
+        alt="" width="95" height="90">
+      <h1 class="display-5 fw-bold text-body-emphasis">The #1 AI and
+        Automation Agency</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4 fs-5 fw-normal">Utilizing the power of Artificial Intelligence, we seamlessly integrate
+          automation into your existing applications. This synergy creates highly efficient processes that automate
+          actions across your digital ecosystem. The result is a significant increase in your team’s bandwidth, enhanced
+          quality of output, accelerated speed of delivery, and an elevated customer experience. Our solutions are fully
+          customized and meticulously crafted to meet your unique needs, offering a comprehensive ‘done-for-you’
+          service.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button id="contactModal" type="button" class="btn btn-primary btn-lg px-4 gap-3 rounded-pill"
+            data-bs-toggle="modal" data-bs-target="#contactModaL">Free Consulation</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Style box -->
+    <!-- Jumbotron -->
+    <div class="rounded-3 bg-banner pt-5 pb-4" style="background-color: hsl(0, 0%, 94%); margin-top: 4rem;">
+      <div class="container">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-md-3"><span class="number text-white fw-bold">5000+</span><br>
+              <span class="fs-2 text-white fw-bold">Manual work</span><br><br>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-7 pt-3 "><span class=" fs-1 text-white fw-bold">Have been replaced with <span
+                  class="purple">AI</span> and <span class="purple">Automation</span> for our clients</span><br></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Automation work -->
+    <div class="container text-center pt-5">
+      <h2>How our <span class="purple">AI</span> and <span class="purple">Automation</span> agency works</h2><br>
+      <p>We get under the hood of your business and find opportunities to replace the most manual, repetitive and
+        expensive bottlenecks with AI-powered, automated processes. We only use AI if there’s a practical use case.</p>
+    </div>
+
+
+    <div class="container text-center d-flex flex-wrap justify-content-center pt-4">
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='media/list.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">STEP 1</h6>
+            <h5>We map out your processes</h5>
+            <p class="card-text">We’ll create a visual map of all your systems, manual tasks and apps.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='media/search.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">STEP 2</h5>
+          <h5>We find areas to add AI and automate
+          </h5>
+          <p class="card-text">We audit your workflows to pinpoint opportunities with the highest ROI.</p>
+        </div>
+      </div>
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='media/process.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">STEP 3</h5>
+          <h5>We build and test
+          </h5>
+          <p class="card-text">We use a mix of custom code, AI tools, Zapier, Make.com and your tech stack.</p>
+        </div>
+      </div>
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='media/work-done.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">STEP 4</h5>
+          <h5>We manage and iterate
+          </h5>
+          <p class="card-text">Every client we work with grows, so there’s always new things to automate.
+            Free Consultation</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-grid gap-2 py-4 d-sm-flex justify-content-sm-center">
+      <button type="button" class="btn btn-primary btn-lg px-4 gap-3 rounded-pill contact" data-bs-toggle="modal"
+        data-bs-target="#contactModaL" aria-current="page">Book a Call</button>
+    </div>
+
+    <!-- quotes first -->
+    <div class="rounded-3 bg-banner pt-5 pb-4" style="background-color: hsl(0, 0%, 94%); margin-top: 4rem;">
+      <div class="container">
+        <div class="container text-center">
+          <div class="row">
+            <h3 class="text-white pb-3">"Artificial intelligence will enable us to work more productively, live longer,
+              and have cleaner energy."</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service provide section -->
+    <div class="container text-center pt-5" id="services">
+      <h1>The endless use cases of <span class="purple">AI</span> and <span class="purple">Automation</span></h1><br>
+      <p>Our clients make their employees 10X more efficient by taking tedious, repetitive tasks off their plate. We are
+        industry agnostic..</p>
+    </div>
+
+
+    <div class="container text-center d-flex flex-wrap justify-content-center pt-4">
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem; ;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/shopping-online.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">Sales and marketing automation</h6>
+            <p class="card-text">Content creation, full-funnel automation, lead routing, CRM, outbound, payments,
+              contracts and much more.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/icons-total-sales.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">Predictive analytics</h5>
+          <p class="card-text">Data-driven decision making through risk analytics, demand or inventory forecasting and
+            other future planning tasks.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/convestional.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">Conversational AI</h5>
+          <p class="card-text">Save employees hours a day by automating their most tedious
+            daily tasks. We’ve even replaced entire teams of virtual assistants.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/project management.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">Project management</h5>
+          <p class="card-text">We connect all manual, repetitive steps in a process, from task handoff to completion.
+            Such as onboarding, admin, accounting, invoicing.</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/staff.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">Staff augmentation</h5>
+          <p class="card-text">Save employees hours a day by automating their most tedious daily tasks. We’ve even
+            replaced entire teams of virtual assistants.</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/hiring.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">Hiring systems</h5>
+          <p class="card-text">Automated processes that source, contact, and evaluate candidates for you</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/convestional-ai.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">AI service fulfillment</h5>
+          <p class="card-text">AI that automates key steps in your fulfillment process to reduce payroll.</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/crm.png') }}" class="mb-3 shake" width="50px" height="50px">
+          <h5 class="card-title">CRM buildouts</h5>
+          <p class="card-text">Sales systems to track, iterate, and scale growth just like an 8-figure company.</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/connection.png') }}" class="mb- shake" width="50px" height="50px">
+          <h5 class="card-title">Data silos</h5>
+          <p class="card-text">We automate data entry, collection, cleansing and reporting from nuanced and silo’d
+            locations, for fast and accurate decision making.</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/customer-service.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">Customer service</h5>
+          <p class="card-text">Most customer service questions and respses are similar and repetitive. As a result, most
+            CS tasks can be automated.</p>
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='service/cloud-connection.png') }}" class="mb-3 shake" width="50px"
+            height="50px">
+          <h5 class="card-title">Connect apps</h5>
+          <p class="card-text">Most of your apps can be integrated with each-other for instant handoffs of data and
+            consolidation of information.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- quotes second -->
+    <div class="rounded-3 bg-banner pt-5 pb-4" style="background-color: hsl(0, 0%, 94%); margin-top: 4rem;">
+      <div class="container">
+        <div class="container text-center">
+          <div class="row">
+            <h3 class="text-white pb-3">"Automation streamlines the workflow, innovation streamlines the mind."</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tools and texhonoligies used -->
+    <div class="container text-center pt-5" id="about">
+      <h1><span class="purple">AI</span> and <span class="purple">Automation</span> technologies we are experts in</h1>
+      <br>
+      <p>We’ve built complete processes using every one of these tools. There are countless more tools in the market
+        which we have experience with or are capable of integrating.</p>
+    </div>
+
+
+    <div class="container text-center d-flex flex-wrap justify-content-center pt-4">
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body no-border">
+          <img src="{{ url_for('static', filename='about/chatgpt.png') }}" class="mb-3 shake" width="140px" height="50px">
+          <p class="card-text">ChatGPT is an artificial intelligence chatbot developed by OpenAI.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='about/openAi.png') }}" class="mb-3 shake" width="140px" height="50px">
+          <p class="card-text">Open AI is tbe company that invented Chat GPT and other popular AI models. We’re
+            constantly testing their newest innovations.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='about/bardAi.png') }}" class="mb-3 shake" width="140px" height="65px">
+          <p class="card-text">Bard is Google’s official AI project and competitor to Chat GPT.</p>
+
+        </div>
+      </div>
+      <div class="card m-2 mb-4 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='about/zapierAi.png') }}" class="mb-3" width="140px" height="40px">
+          <p class="card-text">Zapier is a platform that connects your tools into automated workflows.</p>
+        </div>
+      </div>
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='about/makeAi.svg') }}" class="mb-3 shake" width="140px" height="50px">
+          <p class="card-text">Make.com is a Zapier competitor with a more visual interface and allows larger, more
+            complex animation workflows.</p>
+        </div>
+      </div>
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='about/workato.png') }}" class="mb-3 shake" width="170px" height="45px">
+          <p class="card-text">Workato is another automation platform with powerful integrations tailored more for
+            enterprise companies.</p>
+        </div>
+      </div>
+      <div class="card m-2 box-shadow" style="width: 18rem;">
+        <div class="card-body">
+          <img src="{{ url_for('static', filename='about/highLevel.png') }}" class="mb-3 shake" width="140px" height="35px">
+          <p class="card-text">GoHighLevel (GHL) is an all-in-one marketing automation platform that enhances customer
+            relationships and streamlines business processes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- quotes third -->
+  <div class="rounded-3 bg-banner pt-5 pb-4" style="background-color: hsl(0, 0%, 94%); margin-top: 4rem;">
+    <div class="container">
+      <div class="container text-center">
+        <div class="row">
+          <h3 class="text-white pb-3">"The future of work isn't less work, it's work with greater purpose."</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Prons and cons -->
+  <main class="container pt-3zz">
+
+    <h2 class="text-center fw-semibold pb-4 pt-5">Compare plans</h2>
+
+    <div class="table-responsive scroll">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="visibility: hidden;">quality</th>
+            <th>Free</th>
+            <th>Pro</th>
+            <th>Enterprise</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">Public</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Private</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <tr>
+            <th scope="row" class="text-start">Permissions</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Sharing</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Unlimited members</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" class="text-start">Extra security</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div class="container mt-4 py-5">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6  pb-4">
+          <h2>Why <span class="purple">AI</span> must be combined with <span class="purple">Automation</span></h2>
+          <img src="{{ url_for('static', filename='Automate2.png') }}" style="border-width: 0;" class="img-thumbnail"
+            height="500px" width="500px">
+        </div>
+        <div class="col-md-6 text-start">
+
+          <h3 class="keypoint">You can’t automate everything</h3>
+          <p>AI enhances an automated process by allowing you to analyze data, make predictions, make decisions and
+            create things.</p>
+
+          <h3 class="pt-5 keypoint">You can’t automate everything</h3>
+          <p>AI enhances an automated process by allowing you to analyze data, make predictions, make decisions and
+            create things.</p>
+
+          <h3 class="pt-5 keypoint">You can’t automate everything</h3>
+          <p>AI enhances an automated process by allowing you to analyze data, make predictions, make decisions and
+            create things.</p>
+
+          <h3 class="pt-5 keypoint">You can’t automate everything</h3>
+          <p>AI enhances an automated process by allowing you to analyze data, make predictions, make decisions and
+            create things.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--Section: FAQ-->
+  <div class="container text-center py-3 mb-2" id="faq">
+    <h2>FAQs</h2>
+  </div>
+  <div class="accordion container d-flex flex-wrap justify-content-center" id="accordionPanelsStayOpenExample">
+    <div class="card mx-4 py-3" style="width: 25rem; border-width: 0px;">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button text-white" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mx-4 py-3" style="width: 25rem; border-width: 0px;">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button text-white" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseTwo">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mx-4 py-3" style="width: 25rem; border-width: 0px;">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mx-4 py-3" style="width: 25rem; border-width: 0px;">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseFour">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-center text-white mt-5">
+    <!-- Grid container -->
+    <div class="container-fluid">
+      <!-- Section: Social media -->
+      <section class="pt-3">
+        <!-- Facebook -->
+        <a class="btn btn-white bg-white text-white btn-floating m-1 rounded-pill" href="#!" role="button"><img
+            src="{{ url_for('static', filename='instagram.svg') }}" class="my-2 shake" height="16" width="20"
+            alt="Description of your image"></a>
+
+        <a class="btn btn-white bg-white text-white btn-floating m-1 rounded-pill" href="#!" role="button"><img
+            src="{{ url_for('static', filename='instagram.svg') }}" class="my-2 shake" height="16" width="20"
+            alt="Description of your image"></a>
+
+
+        <a class="btn btn-white bg-white text-white btn-floating m-1 rounded-pill" href="#!" role="button"><img
+            src="{{ url_for('static', filename='instagram.svg') }}" class="my-2 shake" height="16" width="20"
+            alt="Description of your image"></a>
+
+        <a class="btn btn-white bg-white text-white btn-floating m-1 rounded-pill" href="#!" role="button"><img
+            src="{{ url_for('static', filename='instagram.svg') }}" class="my-2 shake" height="16" width="20"
+            alt="Description of your image"></a>
+
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+    <hr>
+    <!-- Copyright -->
+    <div class="text-center fs-5 p-1">
+      © {{year}} Copyright:&nbsp;
+      <a class="text-white fs-5 text-decoration-none" href="/">OceanMonks.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+{%endblock body%}

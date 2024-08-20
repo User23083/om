@@ -1,0 +1,98 @@
+#elementToDisplay{
+  display: none;
+}
+
+span.number{
+	font-size: 70px;
+}
+
+.navbar{
+  margin-bottom: 0px !important;
+}
+.svgbanner{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+}
+
+.bg-banner{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+    /* background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(183,33,199,1) 15%, rgba(0,212,255,1) 100%); */
+}
+#contactModal{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+}
+.accordion-button{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+}
+h3.keypoint{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.alert-warning{
+  margin-top: 5.5rem;
+}
+.submit{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+.contact{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+}
+.purple{
+  color:  #4B0082;
+}
+.bg-purple{
+  background:  #4B0082;
+}
+.bg-purple:hover{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 1%, rgba(0,212,255,1) 100%);
+}
+
+@media screen and (max-width: 992px) {
+  li.nav-item {
+    /* display: block !important ; */
+    width: 100%;
+    }
+    .navbar-toggler{
+      margin-left: auto;
+    }
+    .logo-with-name{
+      padding-top: 8px;
+    }
+    .btn-close{
+      padding-left: 0rem !important;
+    }
+  }
+
+  @media screen and (min-width:900px) {
+    .left{
+      margin-right: 0px !important;
+    }
+    .left ul{
+      margin-left: auto !important;
+    }
+    
+  }
+.modal-header{
+  display: inline;
+}
+.submit{
+    text-align: center !important;
+}
+    
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.box-shadow{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.shake:hover {animation: shaking 0.3s 1;}
+  @keyframes shaking {
+    0% {transform: rotate(0deg);}
+    20% {transform: rotate(-4deg);}
+    50% {transform: rotate(0deg);}
+    70% {transform: rotate(4deg);}
+    100% {transform: rotate(0deg);}
+}
